@@ -69,9 +69,9 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
-    prompt_segment magenta white "%{$fg_bold[white]%(!.%{%F{white}%}.)%}$USER@%m%{$fg_no_bold[white]%}"
+    prompt_segment magenta white "%{$fg_bold[white]%(!.%{%F{white}%}.)%}(SSH) $USER@%m%{$fg_no_bold[white]%}"
   else
-    prompt_segment yellow magenta "%{$fg_bold[magenta]%(!.%{%F{magenta}%}.)%}@$USER%{$fg_no_bold[magenta]%}"
+    prompt_segment yellow white "%{$fg_bold[white]%(!.%{%F{white}%}.)%}$USER@%m%{$fg_no_bold[white]%}"
   fi
 }
 
@@ -320,19 +320,20 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan white "%{$fg_bold[white]%}%~%{$fg_no_bold[white]%}"
+  prompt_segment blue white "%{$fg_bold[white]%}%~%{$fg_no_bold[white]%}"
 }
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+    prompt_segment white black "(`basename $virtualenv_path`)"
   fi
 }
 
 prompt_time() {
-  prompt_segment blue white "%{$fg_bold[white]%}%D{%a %e %b - %H:%M}%{$fg_no_bold[white]%}"
+  #prompt_segment cyan white "%{$fg_bold[white]%}%D{%a %e %b - %H:%M}%{$fg_no_bold[white]%}"
+  prompt_segment cyan white "%{$fg_bold[white]%}%D{%H:%M}%{$fg_no_bold[white]%}"
 }
 
 # Status:
@@ -351,20 +352,18 @@ prompt_status() {
 
 ## Main prompt
 build_prompt() {
+
   RETVAL=$?
-  print -n "\n"
   prompt_status
   prompt_battery
+  prompt_context
   prompt_time
   prompt_virtualenv
   prompt_dir
   prompt_git
   prompt_hg
   prompt_end
-  CURRENT_BG='NONE'
-  print -n "\n"
-  prompt_context
-  prompt_end
+  
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
