@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     rest: {
       src: [
         'Gruntfile.js',
-        'agnosterzak.zsh-theme',
+        'davnosterzak.zsh-theme',
         'README.md'
       ],
       options: {

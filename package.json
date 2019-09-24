@@ -1,22 +1,22 @@
 {
-  "name": "agnosterzak-ohmyzsh-theme",
+  "name": "davnosterzak-theme",
   "version": "1.0.0",
-  "description": "An Agnoster & Powerline-like theme for oh-my-zsh",
-  "main": "agnosterzak.zsh-theme",
+  "description": "An AgnosterZak & Powerline-like theme for oh-my-zsh",
+  "main": "davnosterzak.zsh-theme",
   "scripts": {
     "test": "grunt test",
     "bump": "grunt bump"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme.git"
+    "url": "https://github.com/DavidL28D/agnosterzak-theme.git"
   },
-  "author": "Zakaria Amarifi",
+  "author": "David Chacón",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme/issues"
+    "url": "https://github.com/DavidL28D/agnosterzak-theme/issues"
   },
-  "homepage": "https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme",
+  "homepage": "https://github.com/DavidL28D/agnosterzak-theme",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-bump": "0.0.16",
